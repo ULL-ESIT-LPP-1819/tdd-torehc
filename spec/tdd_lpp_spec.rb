@@ -34,8 +34,7 @@ RSpec.describe TddLpp do
 
     describe "Valor Energético" do
       it "Método para calcular el valor energético" do expect(@tortitas).not_to be_nil
-        expect(@tortitas.valor_energetico_kcal).not_to be_nil;
-
+        expect(@tortitas.valor_energetico_kcal).to eql(389.6);
       end
     end
 
@@ -63,6 +62,14 @@ RSpec.describe TddLpp do
       end
 
     end
+
+    describe "Etiqueta Formateada" do
+      it "Método para formatear etiqueta" do expect(@tortitas).not_to be_nil
+      expect(@tortitas.formatear_etiqueta).to eql(
+         "Nombre: Tortitas de Avena, Grasas: 5, Grasas saturadas: 0.8, Hidratos de carbono: 74, Azúcares: 0.7, Proteínas: 9.2, Sal: 1.5,");
+      end
+    end
+
   end
 
 end
