@@ -48,5 +48,9 @@ module TddLpp
       @valor_energetico_kcal = (e_grasas + e_hidratos_carbono + e_azucares + e_proteinas + e_sal)
     end
 
+    def formatear_etiqueta
+      return ("Nombre: #{nombre}, Grasas: #{grasas}, Grasas saturadas: #{grasas_saturadas}, Hidratos de carbono: #{hidratos_carbono}, Azúcares: #{azucares}, Proteínas: #{proteinas}, Sal: #{sal},")
+    end
+
   end
 end
