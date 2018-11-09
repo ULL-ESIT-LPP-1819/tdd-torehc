@@ -39,5 +39,14 @@ module TddLpp
       @sal
     end
 
+    def valor_energetico_kcal
+      e_grasas = grasas * 9
+      e_hidratos_carbono = hidratos_carbono * 4
+      e_azucares = azucares * 4
+      e_proteinas = proteinas * 4
+      e_sal = sal * 6
+      @valor_energetico_kcal = (e_grasas + e_hidratos_carbono + e_azucares + e_proteinas + e_sal)
+    end
+
   end
 end

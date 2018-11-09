@@ -32,6 +32,13 @@ RSpec.describe TddLpp do
       end
     end
 
+    describe "Valor Energético" do
+      it "Método para calcular el valor energético" do expect(@tortitas).not_to be_nil
+        expect(@tortitas.valor_energetico_kcal).not_to be_nil;
+
+      end
+    end
+
     describe "Getters" do
       it "Método para obtener el nombre" do
         expect(@tortitas.nombre).to eql('Tortitas de Avena')
