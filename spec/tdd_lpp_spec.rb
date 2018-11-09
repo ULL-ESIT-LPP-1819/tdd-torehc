@@ -31,6 +31,38 @@ RSpec.describe TddLpp do
         expect(@tortitas.sal).not_to be_nil
       end
     end
+
+    describe "Valor Energético" do
+      it "Método para calcular el valor energético" do expect(@tortitas).not_to be_nil
+        expect(@tortitas.valor_energetico_kcal).not_to be_nil;
+
+      end
+    end
+
+    describe "Getters" do
+      it "Método para obtener el nombre" do
+        expect(@tortitas.nombre).to eql('Tortitas de Avena')
+      end
+      it "Método para obtener las grasas" do
+        expect(@tortitas.grasas).to eql(5)
+      end
+      it "Método para obtener las grasas saturadas" do
+        expect(@tortitas.grasas_saturadas).to eql(0.8)
+      end
+      it "Existe un metodo para obtener los hidratos de carbono" do
+        expect(@tortitas.hidratos_carbono).to eql(74)
+      end
+      it "Existe un metodo para obtener los azúcares" do
+        expect(@tortitas.azucares).to eql(0.7)
+      end
+      it "Existe un metodo para obtener las proteínas" do
+        expect(@tortitas.proteinas).to eql(9.2)
+      end
+      it "Existe un metodo para obtener la sal" do
+        expect(@tortitas.sal).to eql(1.5)
+      end
+
+    end
   end
 
 end
