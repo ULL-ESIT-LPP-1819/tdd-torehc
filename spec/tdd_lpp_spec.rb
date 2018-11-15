@@ -103,7 +103,30 @@ RSpec.describe TddLpp do
     it "Extraer el último elemento de la lista" do
       expect(@lista_doble.pop).to eq(33)
     end
+  end
+
+  describe "Lista de etiquetas según los gramos de sal" do
+
+      before :each do
+
+        @tortitasA = TddLpp::InfoNutricional.new('Tortitas de Avena',5,0.8,74,0.7,9.2,1.5)
+        @tortitasF = TddLpp::InfoNutricional.new('Tortitas de Fibra',10,0.9,70,0.7,9.2,2)
+        @tortitasN = TddLpp::InfoNutricional.new('Tortitas de Naranja',15,0.9,80,0.7,10.2,2.5)
+        @tortitasL = TddLpp::InfoNutricional.new('Tortitas de Limón',20,1.5,90,0.9,11.2,3)
+
+        @lista_inicial = [Nodo.new(@tortitasA.sal, 1, 3) ,Nodo.new(@tortitasF.sal, 2, 0), Nodo.new(@tortitasN.sal, 3, 1), Nodo.new(@tortitasL.sal, 0, 2)]
+        @lista_etiquetas = Lista.new(@lista_inicial)
+      end
+
+      it "Nodo con sal menor" do
+        expect(@lista_etiquetas.array[0].value).to eq(1.5)
+      end
+
+      it "Nodo con sal mayor" do
+        expect(@lista_etiquetas.array[3].value).to eq(3)
+      end
 
   end
+
 
 end
