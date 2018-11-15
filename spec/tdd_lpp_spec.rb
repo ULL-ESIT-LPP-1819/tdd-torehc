@@ -1,3 +1,5 @@
+require "./lib/tdd_lpp/lista.rb"
+
 RSpec.describe TddLpp do
   it "has a version number" do
     expect(TddLpp::VERSION).not_to be nil
@@ -68,6 +70,10 @@ RSpec.describe TddLpp do
       expect(@tortitas.formatear_etiqueta).to eql(
          "Nombre: Tortitas de Avena, Grasas: 5, Grasas saturadas: 0.8, Hidratos de carbono: 74, Azúcares: 0.7, Proteínas: 9.2, Sal: 1.5,");
       end
+    end
+
+    describe "Lista doble enlazada" do
+
     end
 
   end
