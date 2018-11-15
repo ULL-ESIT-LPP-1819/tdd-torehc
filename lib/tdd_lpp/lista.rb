@@ -11,7 +11,7 @@ class Lista
     @head = @array[0]
     @tail = @array[-1]
   end
-"""
+
   def push_back(objeto_nodo)
     @array << objeto_nodo
     @array[0].prev = @array[-1].value
@@ -19,5 +19,23 @@ class Lista
     @tail = objeto_nodo
     return tail.value
   end
-"""
+
+  def pop_front
+    @array[-1].next = @array[1].value
+    @array[1].prev = @array[-1].value
+    @array.shift
+    @head = @array[0]
+    @tail = @array[-1]
+    return @head.value
+  end
+
+  def pop
+    @array[-2].next = @array[0].value
+    @array[0].prev = @array[-2].value
+    @array.pop
+    @head = @array[0]
+    @tail = @array[-1]
+    return @tail.value
+  end
+
 end
