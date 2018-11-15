@@ -1,15 +1,14 @@
-require "./lib/tdd_lpp/lista.rb"
-
 RSpec.describe TddLpp do
   it "has a version number" do
     expect(TddLpp::VERSION).not_to be nil
   end
 
-  before :each do
-    @tortitas = TddLpp::InfoNutricional.new('Tortitas de Avena',5,0.8,74,0.7,9.2,1.5)
-  end
-
   describe TddLpp do
+
+    before :each do
+      @tortitas = TddLpp::InfoNutricional.new('Tortitas de Avena',5,0.8,74,0.7,9.2,1.5)
+    end
+
     describe "Etiqueta" do
       it "Etiqueta con nombre" do
         expect(@tortitas.nombre).not_to be_nil
@@ -72,8 +71,25 @@ RSpec.describe TddLpp do
       end
     end
 
-    describe "Lista doble enlazada" do
+  end
 
+  describe Lista do
+
+    before :each do
+      @lista_inicial = [Nodo.new(00, 1, 4) ,Nodo.new(11, 2, 0), Nodo.new(22, 3, 1), Nodo.new(33, 4, 2), Nodo.new(44, 0, 3)]
+      @lista_doble = Lista.new(@lista_inicial)
+    end
+
+    it "Nodo con valor" do
+      expect(@lista_doble.array[1].value).to eq(11)
+    end
+
+    it "Nodo con el siguiente" do
+      expect(@lista_doble.array[2].next).to eq(3)
+    end
+
+    it "Nodo con el previo." do
+      expect(@lista_doble.array[0].prev).to eq(4)
     end
 
   end
