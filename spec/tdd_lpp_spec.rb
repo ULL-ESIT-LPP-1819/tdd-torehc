@@ -92,6 +92,10 @@ RSpec.describe TddLpp do
       expect(@lista_doble.array[0].prev).to eq(4)
     end
 
+    it "Insertar elemento en lista" do
+      expect(@lista_doble.push_back(Nodo.new(55, @lista_doble.head.value, @lista_doble.tail.value))).to eq(55)
+    end
+
   end
 
 end
