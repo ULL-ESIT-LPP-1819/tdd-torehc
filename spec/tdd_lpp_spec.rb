@@ -103,6 +103,10 @@ RSpec.describe TddLpp do
     it "Extraer el último elemento de la lista" do
       expect(@lista_doble.pop).to eq(33)
     end
+
+    it "Lista vacía" do
+      expect(@lista_doble.empty).to eq(false)
+    end
   end
 
   describe "Lista de etiquetas según los gramos de sal" do

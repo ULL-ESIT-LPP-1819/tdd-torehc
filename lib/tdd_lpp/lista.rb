@@ -38,4 +38,8 @@ class Lista
     return @tail.value
   end
 
+  def empty
+    return @array.empty?
+  end
+
 end
