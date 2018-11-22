@@ -174,6 +174,13 @@ RSpec.describe TddLpp do
       expect(@lista_imc.array[0].value).to eq(25.95)
     end
 
+    it "Menor IMC" do
+      expect(@lista_imc.sort_min.value).to eq(23.44)
+    end
+
+    it "Mayor IMC" do
+      expect(@lista_imc.sort_max.value).to eq(26.23)
+    end
 
   end
 
