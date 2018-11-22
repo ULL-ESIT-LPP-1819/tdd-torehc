@@ -132,5 +132,24 @@ RSpec.describe TddLpp do
 
   end
 
+  describe "Jerarquía de Clases" do
+
+    before :each do
+      @p1 = Paciente.new('Pedro','Hdez',false)
+    end
+
+    it "Objeto tipo Paciente" do
+      expect(@p1.class.name).to eql("Paciente")
+    end
+
+    it "Paciente es un Individuo" do
+      expect(@p1.is_a?(Individuo)).to eq(true)
+    end
+
+    it "Paciente hereda de Individuo" do
+      expect(Paciente.superclass.name).to eq("Individuo")
+    end
+
+  end
 
 end
