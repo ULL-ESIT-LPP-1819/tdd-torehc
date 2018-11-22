@@ -46,12 +46,8 @@ class Lista
     return @array.sort_by { |h| h[:value] }
   end
 
-  def sort_min
-    return @array.sort_by{ |h| h[:value] }[0]
-  end
-
-  def sort_max
-    return @array.sort_by { |h| h[:value] }[-1]
+  def sort_paciente_IMC
+    return @array.sort_by { |h| h.value.estadoNutricional.IMC() }
   end
 
 

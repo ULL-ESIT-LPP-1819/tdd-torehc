@@ -161,25 +161,33 @@ RSpec.describe TddLpp do
       @p4 = Paciente.new('Diana','D',true,60,1.60,2,24,35.0,60.0)
       @p5 = Paciente.new('Luis','E',true,85,1.80,1,24,50.0,70.0)
 
-      @lista_inicial = [Nodo.new(@p1.estadoNutricional.IMC(), 1, 4),
-                        Nodo.new(@p2.estadoNutricional.IMC(), 2, 0),
-                        Nodo.new(@p3.estadoNutricional.IMC(), 3, 1),
-                        Nodo.new(@p4.estadoNutricional.IMC(), 4, 2),
-                        Nodo.new(@p5.estadoNutricional.IMC(), 0, 3)]
+      @lista_inicial = [Nodo.new(@p1, 1, 4),
+                        Nodo.new(@p2, 2, 0),
+                        Nodo.new(@p3, 3, 1),
+                        Nodo.new(@p4, 4, 2),
+                        Nodo.new(@p5, 0, 3)]
       @lista_imc = Lista.new(@lista_inicial)
 
     end
 
     it "Obtener IMC de Individuo" do
-      expect(@lista_imc.array[0].value).to eq(25.95)
+      expect( @lista_imc.array[0].value.estadoNutricional.IMC() ).to eq(25.95)
     end
 
     it "Menor IMC" do
-      expect(@lista_imc.sort_min.value).to eq(23.44)
+      expect( @lista_imc.sort_paciente_IMC[0].value.estadoNutricional.IMC() ).to eq(23.44)
     end
 
     it "Mayor IMC" do
-      expect(@lista_imc.sort_max.value).to eq(26.23)
+      expect( @lista_imc.sort_paciente_IMC[-1].value.estadoNutricional.IMC() ).to eq(26.23)
+    end
+
+    it "Individuo con Menor IMC" do
+      expect( @lista_imc.sort_paciente_IMC[0].value.nombre ).to eql("Diana")
+    end
+
+    it "Individuo con Mayor IMC" do
+      expect( @lista_imc.sort_paciente_IMC[-1].value.nombre ).to eql("Luis")
     end
 
   end
