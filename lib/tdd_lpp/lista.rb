@@ -42,4 +42,17 @@ class Lista
     return @array.empty?
   end
 
+  def sort
+    return @array.sort_by { |h| h[:value] }
+  end
+
+  def sort_min
+    return @array.sort_by{ |h| h[:value] }[0]
+  end
+
+  def sort_max
+    return @array.sort_by { |h| h[:value] }[-1]
+  end
+
+
 end
