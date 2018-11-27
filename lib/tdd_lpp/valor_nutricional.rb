@@ -1,5 +1,6 @@
 class EstadoNutricional
 
+  include Comparable
   attr_reader :peso, :altura, :sexo, :edad, :circ_cintura, :circ_cadera;
 
   def initialize (peso, altura, sexo, edad, circ_cintura, circ_cadera)
@@ -52,6 +53,11 @@ class EstadoNutricional
       end
 
     end
+  end
+
+  def <=>(other) #Devuelve: 1 si self>other, 0 si self==other, -1 si self<other
+    [self.peso, self.altura, self.sexo, self.edad, self.circ_cintura, self.circ_cadera] <=>
+        [other.peso, other.altura, other.sexo, other.edad, other.circ_cintura, other.circ_cadera]
   end
 
 end
