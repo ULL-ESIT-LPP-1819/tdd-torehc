@@ -1,6 +1,9 @@
 module TddLpp
   class InfoNutricional
 
+    include Comparable
+    attr_reader :nombre, :grasas, :grasas_saturadas, :hidratos_carbono, :azucares, :proteinas, :sal
+
     def initialize(nombre, grasas, grasas_saturadas, hidratos_carbono, azucares, proteinas, sal)
       @nombre = nombre
       @grasas = grasas
@@ -9,34 +12,6 @@ module TddLpp
       @azucares = azucares
       @proteinas = proteinas
       @sal = sal
-    end
-
-    def nombre
-      @nombre
-    end
-
-    def grasas
-      @grasas
-    end
-
-    def grasas_saturadas
-      @grasas_saturadas
-    end
-
-    def hidratos_carbono
-      @hidratos_carbono
-    end
-
-    def azucares
-      @azucares
-    end
-
-    def proteinas
-      @proteinas
-    end
-
-    def sal
-      @sal
     end
 
     def valor_energetico_kcal
@@ -51,6 +26,19 @@ module TddLpp
     def formatear_etiqueta
       return ("Nombre: #{nombre}, Grasas: #{grasas}, Grasas saturadas: #{grasas_saturadas}, Hidratos de carbono: #{hidratos_carbono}, Azúcares: #{azucares}, Proteínas: #{proteinas}, Sal: #{sal},")
     end
+
+    def <=>(other) #Devuelve: 1 si self>other, 0 si self==other, -1 si self<other
+
+      comparar = self.valor_energetico_kcal() <=> other.valor_energetico_kcal()
+
+      if comparar == 0
+        comparar = @nombre <=> other.nombre
+      end
+
+      return comparar
+
+    end
+
 
   end
 end
