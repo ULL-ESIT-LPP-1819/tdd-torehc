@@ -192,4 +192,41 @@ RSpec.describe TddLpp do
 
   end
 
+  describe "Comparar la información nutricional entre dos etiquetas" do
+
+    before :each do
+      @tortitas = TddLpp::InfoNutricional.new('Tortitas de Avena',5,0.8,74,0.7,9.2,1.5)
+      @tortitas2 = TddLpp::InfoNutricional.new('Tortitas de Avena',5,0.8,74,0.7,9.2,1.5)
+      @tortitas_choco = TddLpp::InfoNutricional.new('Tortitas de Chocolate',6,1,90,0.8,10.2,2)
+    end
+
+    it "Etiquetas iguales" do
+      expect(@tortitas == @tortitas2).to eq(true)
+    end
+
+    it "Etiquetas distintas" do
+      expect(@tortitas != @tortitas_choco).to eq(true)
+    end
+
+    it "Etiqueta mayor que otra (>)" do
+      expect(@tortitas_choco).to be > @tortitas
+    end
+
+    it "Etiqueta menor que otra (<)" do
+      expect(@tortitas).to be < @tortitas_choco
+    end
+
+    it "Etiqueta menor o igual que otra (<=)" do
+      expect(@tortitas).to be <= @tortitas_choco
+      expect(@tortitas).to be == @tortitas2
+    end
+
+    it "Etiqueta mayor o igual que otra (>=)" do
+      expect(@tortitas_choco).to be >= @tortitas
+      expect(@tortitas).to be == @tortitas2
+    end
+
+  end
+
+
 end
