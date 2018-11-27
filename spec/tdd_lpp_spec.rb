@@ -229,4 +229,41 @@ RSpec.describe TddLpp do
   end
 
 
+  describe "Comparar la Valoración Nutricional de un Individuo" do
+
+    before :each do
+      @pLuis = Paciente.new('Luis','A',true,75,1.70,1,24,50.0,70.0)
+      @pLuis2 = Paciente.new('Luis','A',true,75,1.70,1,24,50.0,70.0)
+      @pMarta = Paciente.new('Marta','C',true,55,1.50,2,24,30.0,50.0)
+    end
+
+    it "Valoración Nutricional iguales" do
+      expect(@pLuis.estadoNutricional == @pLuis2.estadoNutricional).to eq(true)
+    end
+
+    it "Valoración Nutricional distintas" do
+      expect(@pLuis.estadoNutricional != @pMarta.estadoNutricional).to eq(true)
+    end
+
+    it "Valoración Nutricional mayor que otra (>)" do
+      expect(@pLuis.estadoNutricional).to be > @pMarta.estadoNutricional
+    end
+
+    it "Valoración Nutricional menor que otra (<)" do
+      expect(@pMarta.estadoNutricional).to be < @pLuis.estadoNutricional
+    end
+
+    it "Valoración Nutricional menor o igual que otra (<=)" do
+      expect(@pMarta.estadoNutricional).to be <= @pLuis.estadoNutricional
+      expect(@pLuis.estadoNutricional).to be == @pLuis2.estadoNutricional
+    end
+
+    it "Valoración Nutricional mayor o igual que otra (>=)" do
+      expect(@pLuis.estadoNutricional).to be >= @pMarta.estadoNutricional
+      expect(@pLuis.estadoNutricional).to be == @pLuis2.estadoNutricional
+    end
+
+  end
+
+
 end
