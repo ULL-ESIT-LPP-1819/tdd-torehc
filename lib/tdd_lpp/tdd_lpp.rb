@@ -28,15 +28,8 @@ module TddLpp
     end
 
     def <=>(other) #Devuelve: 1 si self>other, 0 si self==other, -1 si self<other
-
-      comparar = self.valor_energetico_kcal() <=> other.valor_energetico_kcal()
-
-      if comparar == 0
-        comparar = @nombre <=> other.nombre
-      end
-
-      return comparar
-
+      [self.nombre, self.grasas, self.grasas_saturadas, self.hidratos_carbono, self.azucares, self.proteinas, self.sal] <=>
+          [other.nombre, other.grasas, other.grasas_saturadas, other.hidratos_carbono, other.azucares, other.proteinas, other.sal]
     end
 
 
