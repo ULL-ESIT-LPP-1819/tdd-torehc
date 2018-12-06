@@ -265,5 +265,48 @@ RSpec.describe TddLpp do
 
   end
 
+  describe "Enumerar listas de etiquetas de información nutricional" do
+
+    before :each do
+
+      @tortitasA = TddLpp::InfoNutricional.new('Tortitas de Avena',5,0.8,74,0.7,9.2,1.5)
+      @tortitasF = TddLpp::InfoNutricional.new('Tortitas de Fibra',10,0.9,70,0.7,9.2,2)
+      @tortitasN = TddLpp::InfoNutricional.new('Tortitas de Naranja',15,0.9,80,0.7,10.2,2.5)
+      @tortitasL = TddLpp::InfoNutricional.new('Tortitas de Limón',20,1.5,90,0.9,11.2,3)
+
+      @lista_inicial = [Nodo.new(@tortitasA, 1, 3) ,Nodo.new(@tortitasF, 2, 0), Nodo.new(@tortitasN, 3, 1), Nodo.new(@tortitasL, 0, 2)]
+      @lista_etiquetas = Lista.new(@lista_inicial)
+    end
+
+    it "comprobrando el método all?" do
+      expect(@lista_etiquetas.all?).to eq(true)
+    end
+
+    it "comprobrando el método any?" do
+      expect(@lista_etiquetas.any?).to eq(true)
+    end
+
+    it "comprobrando el método collect" do
+      expect(@lista_etiquetas.map{|i| i}).to eq(@lista_inicial)
+    end
+
+    it "comprobrando el método count" do
+      expect(@lista_etiquetas.count).to eq(4)
+    end
+
+    it "menor de la lista por grasas" do
+      expect(@lista_etiquetas.min_by {|h| h[:value].grasas}.value.grasas).to eq(5)
+    end
+
+    it "mayor de la lista por grasas" do
+      expect(@lista_etiquetas.max_by {|h| h[:value].grasas}.value.grasas).to eq(20)
+    end
+
+    it "sort de la lista por grasas" do
+      expect(@lista_etiquetas.sort_by {|h| h[:value].grasas}[1].value.grasas).to eq(10)
+    end
+
+  end
+
 
 end

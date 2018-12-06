@@ -42,13 +42,12 @@ class Lista
     return @array.empty?
   end
 
-  def sort
-    return @array.sort_by { |h| h[:value] }
-  end
-
   def sort_paciente_IMC
     return @array.sort_by { |h| h.value.estadoNutricional.IMC() }
   end
 
+  def each(&block)
+    @array.each(&block)
+  end
 
 end
