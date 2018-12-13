@@ -155,11 +155,11 @@ RSpec.describe TddLpp do
   describe "Lista de Individuos según Índice de Masa Corporal" do
 
     before :each do
-      @p1 = Paciente.new('Hector','A',true,75,1.70,1,24,50.0,70.0)
-      @p2 = Paciente.new('Pedro','B',true,85,1.80,1,24,50.0,70.0)
-      @p3 = Paciente.new('Marta','C',true,55,1.50,2,24,30.0,50.0)
-      @p4 = Paciente.new('Diana','D',true,60,1.60,2,24,35.0,60.0)
-      @p5 = Paciente.new('Luis','E',true,85,1.80,1,24,50.0,70.0)
+      @p1 = Paciente.new('Hector','A',true,75,1.70,1,24,50.0,70.0, 48)
+      @p2 = Paciente.new('Pedro','B',true,85,1.80,1,24,50.0,70.0, 44)
+      @p3 = Paciente.new('Marta','C',true,55,1.50,2,24,30.0,50.0, 40)
+      @p4 = Paciente.new('Diana','D',true,60,1.60,2,24,35.0,60.0, 38)
+      @p5 = Paciente.new('Luis','E',true,85,1.80,1,24,50.0,70.0, 38)
 
       @lista_inicial = [Nodo.new(@p1, 1, 4),
                         Nodo.new(@p2, 2, 0),
@@ -304,6 +304,18 @@ RSpec.describe TddLpp do
 
     it "sort de la lista por grasas" do
       expect(@lista_etiquetas.sort_by {|h| h[:value].grasas}[1].value.grasas).to eq(10)
+    end
+
+  end
+
+  describe "Menú Dietético" do
+
+    before :each do
+      @p1 = Paciente.new('Hector','A',true,75,1.70,1,24,50.0,70.0, 48)
+    end
+
+    it "Peso teórico ideal" do
+      expect(@p1.peso_teorico_ideal).to eq(-26.5)
     end
 
   end
