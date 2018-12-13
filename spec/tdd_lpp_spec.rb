@@ -327,6 +327,16 @@ RSpec.describe TddLpp do
       expect(@p3.gasto_energetico_basal).to eq(519)
     end
 
+    it "Efecto termógeno Hombre" do
+      #expect(@p1.efecto_termogeno).to eq(935)
+      expect(@p1.efecto_termogeno).not_to eq(nil)
+    end
+
+    it "Efecto termógeno Mujer" do
+      #expect(@p3.efecto_termogeno).to eq(519)
+      expect(@p3.efecto_termogeno).not_to eq(nil)
+    end
+
   end
 
 

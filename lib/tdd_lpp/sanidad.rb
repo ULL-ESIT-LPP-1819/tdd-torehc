@@ -54,6 +54,10 @@ class Paciente < Individuo
     end
   end
 
+  def efecto_termogeno
+    return gasto_energetico_basal * 0,10
+  end
+
 end
 
 
