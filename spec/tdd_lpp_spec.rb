@@ -312,10 +312,19 @@ RSpec.describe TddLpp do
 
     before :each do
       @p1 = Paciente.new('Hector','A',true,75,1.70,1,24,50.0,70.0, 48)
+      @p3 = Paciente.new('Marta','C',true,55,1.50,2,24,30.0,50.0, 40)
     end
 
     it "Peso teórico ideal" do
       expect(@p1.peso_teorico_ideal).to eq(-26.5)
+    end
+
+    it "Gasto energético basal Hombre" do
+      expect(@p1.gasto_energetico_basal).to eq(935)
+    end
+
+    it "Gasto energético basal Mujer" do
+      expect(@p3.gasto_energetico_basal).to eq(519)
     end
 
   end

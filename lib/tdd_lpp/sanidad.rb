@@ -18,8 +18,7 @@ end
 
 class Paciente < Individuo
 
-  include Comparable
-  attr_reader :tratamiento_obesidad,:consulta, :estadoNutricional, :talla
+  attr_reader :tratamiento_obesidad,:consulta, :estadoNutricional, :talla, :sexo, :edad, :peso
 
   def initialize(nombre, apellido, tratamiento_obesidad=false, consulta=false, peso, altura, sexo, edad, circ_cintura, circ_cadera, talla)
 
@@ -29,6 +28,10 @@ class Paciente < Individuo
     @consulta = consulta
     @estadoNutricional = EstadoNutricional.new(peso, altura, sexo, edad, circ_cintura, circ_cadera)
     @talla = talla
+    @sexo = sexo
+    @edad = edad
+    @peso = peso
+
   end
 
   def to_s
@@ -40,6 +43,15 @@ class Paciente < Individuo
 
   def peso_teorico_ideal
     return (talla - 150) * 0.75 + 50
+  end
+
+  #Calcular el gasto energético en estado de reposo
+  def gasto_energetico_basal
+    if sexo == 1 #Es un Hombre
+      return (10 * peso) + (6.25 * talla) - (5 * edad) + 5
+    else #Es una mujer
+      return (10 * peso) + (6.25 * talla) - (5 * edad) - 161
+    end
   end
 
 end
