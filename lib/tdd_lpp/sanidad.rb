@@ -15,6 +15,28 @@ class Individuo
 
 end
 
+class Paciente < Individuo
+  attr_reader :tratamiento_obesidad,:consulta, :estadoNutricional, :talla, :sexo, :edad, :peso, :a_fisica
+
+  def initialize(nombre, apellido, tratamiento_obesidad=false, consulta=false, peso, altura, sexo, edad, circ_cintura, circ_cadera, talla, a_fisica)
+
+    super(nombre, apellido)   #encadenamiento (chaining)
+
+    @tratamiento_obesidad = tratamiento_obesidad
+    @consulta = consulta
+    @estadoNutricional = EstadoNutricional.new(peso, altura, sexo, edad, circ_cintura, circ_cadera)
+    @talla = talla
+    @sexo = sexo
+    @edad = edad
+    @peso = peso
+    @a_fisica = a_fisica
+  end
+
+  def gasto_actividad_fisica
+    return gasto_energetico_basal * @a_fisica
+  end
+  
+end
 
 class Paciente < Individuo
 
@@ -33,6 +55,7 @@ class Paciente < Individuo
     @peso = peso
 
   end
+
 
   def to_s
     s = "Paciente "

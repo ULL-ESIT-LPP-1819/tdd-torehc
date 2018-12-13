@@ -311,20 +311,20 @@ RSpec.describe TddLpp do
   describe "Menú Dietético" do
 
     before :each do
-      @p1 = Paciente.new('Hector','A',true,75,1.70,1,24,50.0,70.0, 48)
-      @p3 = Paciente.new('Marta','C',true,55,1.50,2,24,30.0,50.0, 40)
+      @p1 = Paciente.new('Hector','A',true,75,1.70,1,24,50.0,70.0, 48, 0.12)
+      @p3 = Paciente.new('Marta','C',true,55,1.50,2,24,30.0,50.0, 40, 0)
     end
 
     it "Peso teórico ideal" do
-      expect(@p1.peso_teorico_ideal).to eq(-26.5)
+      expect(@p1.peso_teorico_ideal).to eq(-62.41)
     end
 
     it "Gasto energético basal Hombre" do
-      expect(@p1.gasto_energetico_basal).to eq(935)
+      expect(@p1.gasto_energetico_basal).to eq(-393.25)
     end
 
     it "Gasto energético basal Mujer" do
-      expect(@p3.gasto_energetico_basal).to eq(519)
+      expect(@p3.gasto_energetico_basal).to eq(-296.0)
     end
 
     it "Efecto termógeno Hombre" do
@@ -336,6 +336,10 @@ RSpec.describe TddLpp do
       #expect(@p3.efecto_termogeno).to eq(519)
       expect(@p3.efecto_termogeno).not_to eq(nil)
     end
+
+    #it "Gasto en Atividad Física" do
+    #  expect(@p1.gasto_actividad_fisica).to eq(1)
+    #end
 
   end
 
