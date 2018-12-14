@@ -1,4 +1,4 @@
-# TddLpp Práctica 8 LPP
+# TddLpp Práctica 10 LPP
 
 Esta práctica de laboratorio se ha de realizar utilizando el lenguaje de programación Ruby y el
 concepto de herencia del paradigma de Programación Orientada a Objetos.
